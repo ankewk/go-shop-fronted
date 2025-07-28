@@ -196,6 +196,40 @@ out/
 storybook-static/
 
 # ========================================
+# uni-app Specific
+# ========================================
+# uni-app编译产物
+dist/
+unpackage/
+
+# uni-app缓存
+.temp/
+.hbuilderx/
+
+# uni-app自动生成的文件
+auto-imports.d.ts
+components.d.ts
+
+# 平台特定文件
+# 微信小程序
+project.config.json
+project.private.config.json
+sitemap.json
+
+# 支付宝小程序
+mini.project.json
+
+# 百度小程序
+project.swan.json
+
+# 抖音小程序
+project.tt.json
+
+# App打包产物
+platforms/
+hybrid/
+
+# ========================================
 # Security & Sensitive Files
 # ========================================
 # API keys and secrets
