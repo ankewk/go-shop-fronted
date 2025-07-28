@@ -1,0 +1,38 @@
+{
+  "name": "gin-ecommerce-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Gin微服务电商平台前端 - Vue3 + Vuex",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "vite preview --port 3000"
+  },
+  "dependencies": {
+    "vue": "^3.4.15",
+    "vue-router": "^4.2.5",
+    "vuex": "^4.1.0",
+    "axios": "^1.6.5",
+    "element-plus": "^2.4.4",
+    "@element-plus/icons-vue": "^2.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.3",
+    "vite": "^5.0.11",
+    "sass": "^1.70.0",
+    "unplugin-auto-import": "^0.17.3",
+    "unplugin-vue-components": "^0.26.0"
+  },
+  "keywords": [
+    "vue3",
+    "vuex",
+    "vite",
+    "ecommerce",
+    "microservices",
+    "gin",
+    "frontend"
+  ],
+  "author": "Gin Ecommerce Team",
+  "license": "MIT"
+} 

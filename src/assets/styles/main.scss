@@ -1,0 +1,527 @@
+@import 'variables';
+
+// 全局样式重置
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $text-primary;
+  background-color: $bg-light;
+  font-size: $font-size-base;
+  line-height: 1.5;
+}
+
+#app {
+  height: 100%;
+}
+
+// 链接样式
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    color: darken($primary-color, 10%);
+  }
+}
+
+// 滚动条样式
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-lighter;
+  border-radius: $border-radius-base;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $border-dark;
+  border-radius: $border-radius-base;
+
+  &:hover {
+    background: $text-secondary;
+  }
+}
+
+// 工具类
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-primary {
+  color: $text-primary;
+}
+
+.text-regular {
+  color: $text-regular;
+}
+
+.text-secondary {
+  color: $text-secondary;
+}
+
+.text-placeholder {
+  color: $text-placeholder;
+}
+
+.bg-white {
+  background-color: $bg-white;
+}
+
+.bg-light {
+  background-color: $bg-light;
+}
+
+.bg-lighter {
+  background-color: $bg-lighter;
+}
+
+.border-light {
+  border: 1px solid $border-light;
+}
+
+.border-base {
+  border: 1px solid $border-base;
+}
+
+.border-dark {
+  border: 1px solid $border-dark;
+}
+
+.rounded-sm {
+  border-radius: $border-radius-small;
+}
+
+.rounded {
+  border-radius: $border-radius-base;
+}
+
+.rounded-lg {
+  border-radius: $border-radius-large;
+}
+
+.shadow-light {
+  box-shadow: $box-shadow-light;
+}
+
+.shadow-base {
+  box-shadow: $box-shadow-base;
+}
+
+// 间距工具类
+@each $size in (xs, sm, md, lg, xl) {
+  $value: map-get((xs: $spacing-xs,
+        sm: $spacing-sm,
+        md: $spacing-md,
+        lg: $spacing-lg,
+        xl: $spacing-xl ), $size);
+
+  .m-#{$size} {
+    margin: $value;
+  }
+
+  .mt-#{$size} {
+    margin-top: $value;
+  }
+
+  .mr-#{$size} {
+    margin-right: $value;
+  }
+
+  .mb-#{$size} {
+    margin-bottom: $value;
+  }
+
+  .ml-#{$size} {
+    margin-left: $value;
+  }
+
+  .mx-#{$size} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+
+  .my-#{$size} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+
+  .p-#{$size} {
+    padding: $value;
+  }
+
+  .pt-#{$size} {
+    padding-top: $value;
+  }
+
+  .pr-#{$size} {
+    padding-right: $value;
+  }
+
+  .pb-#{$size} {
+    padding-bottom: $value;
+  }
+
+  .pl-#{$size} {
+    padding-left: $value;
+  }
+
+  .px-#{$size} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+
+  .py-#{$size} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+}
+
+// 布局工具类
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+// 动画类
+.transition {
+  transition: all 0.3s ease;
+}
+
+.transition-fast {
+  transition: all 0.15s ease;
+}
+
+.transition-slow {
+  transition: all 0.5s ease;
+}
+
+// 卡片样式
+.card {
+  background: $bg-white;
+  border-radius: $border-radius-large;
+  box-shadow: $box-shadow-light;
+  padding: $spacing-lg;
+
+  &.card-hover {
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
+// 按钮增强样式
+.btn-gradient {
+  background: linear-gradient(45deg, $primary-color, lighten($primary-color, 10%));
+  border: none;
+  color: white;
+
+  &:hover {
+    background: linear-gradient(45deg, darken($primary-color, 10%), $primary-color);
+  }
+}
+
+// 响应式断点和工具类
+.mobile-only {
+  display: block !important;
+}
+
+.desktop-only {
+  display: none !important;
+}
+
+@media (max-width: #{$breakpoint-sm - 1px}) {
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  .desktop-only {
+    display: block !important;
+  }
+
+  .mobile-only {
+    display: block !important;
+  }
+}
+
+@media (min-width: $breakpoint-sm) {
+  .desktop-hidden {
+    display: none !important;
+  }
+
+  .desktop-only {
+    display: block !important;
+  }
+
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .tablet-hidden {
+    display: none !important;
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .desktop-large-only {
+    display: block !important;
+  }
+}
+
+@media (max-width: #{$breakpoint-lg - 1px}) {
+  .desktop-large-hidden {
+    display: none !important;
+  }
+
+  .desktop-large-only {
+    display: none !important;
+  }
+}
+
+// PC端容器
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  @media (min-width: $breakpoint-sm) {
+    max-width: $container-sm;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    max-width: $container-md;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    max-width: $container-lg;
+    padding: 0 $spacing-lg;
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    max-width: $container-xl;
+    padding: 0 $spacing-xl;
+  }
+}
+
+// PC端网格系统
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 (-$spacing-sm);
+
+  @media (min-width: $breakpoint-lg) {
+    margin: 0 (-$spacing-md);
+  }
+}
+
+.col {
+  flex: 1;
+  padding: 0 $spacing-sm;
+
+  @media (min-width: $breakpoint-lg) {
+    padding: 0 $spacing-md;
+  }
+}
+
+// 生成响应式列
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    flex: 0 0 percentage($i / 12);
+    max-width: percentage($i / 12);
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    .col-sm-#{$i} {
+      flex: 0 0 percentage($i / 12);
+      max-width: percentage($i / 12);
+    }
+  }
+
+  @media (min-width: $breakpoint-md) {
+    .col-md-#{$i} {
+      flex: 0 0 percentage($i / 12);
+      max-width: percentage($i / 12);
+    }
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    .col-lg-#{$i} {
+      flex: 0 0 percentage($i / 12);
+      max-width: percentage($i / 12);
+    }
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    .col-xl-#{$i} {
+      flex: 0 0 percentage($i / 12);
+      max-width: percentage($i / 12);
+    }
+  }
+}
+
+// PC端优化样式
+.pc-layout {
+  @media (min-width: $breakpoint-lg) {
+    display: flex;
+    min-height: 100vh;
+
+    .main-content {
+      flex: 1;
+      margin-left: $sidebar-width;
+      padding: $spacing-lg;
+    }
+
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: $header-height;
+      width: $sidebar-width;
+      height: calc(100vh - #{$header-height});
+      background: $bg-white;
+      border-right: 1px solid $border-light;
+      overflow-y: auto;
+    }
+  }
+}
+
+// PC端卡片网格
+.card-grid {
+  display: grid;
+  gap: $spacing-md;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+  @media (min-width: $breakpoint-sm) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: $spacing-lg;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: $spacing-xl;
+  }
+}
+
+// PC端表格优化
+.pc-table {
+  @media (min-width: $breakpoint-lg) {
+    .el-table {
+      font-size: $font-size-sm;
+
+      .el-table__header th {
+        background: $bg-light;
+        font-weight: 600;
+      }
+
+      .el-table__row:hover {
+        background: $bg-lighter;
+      }
+    }
+  }
+}
+
+// PC端侧边栏
+.pc-sidebar {
+  @media (min-width: $breakpoint-lg) {
+    .el-menu {
+      border-right: none;
+
+      .el-menu-item {
+        height: 48px;
+        line-height: 48px;
+        font-size: $font-size-sm;
+
+        &:hover,
+        &.is-active {
+          background: lighten($primary-color, 45%);
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
